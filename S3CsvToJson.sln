@@ -1,0 +1,43 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.002.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "S3CsvToJson", "S3CsvToJson", "{24A5EF4F-30E5-43B5-9281-0DC7D0FB5079}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{BEC40DBE-4B09-4EF9-A659-348993074C6C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "S3CsvToJson", "S3CsvToJson\src\S3CsvToJson\S3CsvToJson.csproj", "{0CD24FFB-9E62-4503-9F49-591D7CB7483E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{00724880-7DC5-418F-B76F-FDDC41E57E05}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "S3CsvToJson.Tests", "S3CsvToJson\test\S3CsvToJson.Tests\S3CsvToJson.Tests.csproj", "{25CF94EB-CD93-480A-A759-8C74C0D2581B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0CD24FFB-9E62-4503-9F49-591D7CB7483E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0CD24FFB-9E62-4503-9F49-591D7CB7483E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0CD24FFB-9E62-4503-9F49-591D7CB7483E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0CD24FFB-9E62-4503-9F49-591D7CB7483E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{25CF94EB-CD93-480A-A759-8C74C0D2581B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{25CF94EB-CD93-480A-A759-8C74C0D2581B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{25CF94EB-CD93-480A-A759-8C74C0D2581B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{25CF94EB-CD93-480A-A759-8C74C0D2581B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{BEC40DBE-4B09-4EF9-A659-348993074C6C} = {24A5EF4F-30E5-43B5-9281-0DC7D0FB5079}
+		{0CD24FFB-9E62-4503-9F49-591D7CB7483E} = {BEC40DBE-4B09-4EF9-A659-348993074C6C}
+		{00724880-7DC5-418F-B76F-FDDC41E57E05} = {24A5EF4F-30E5-43B5-9281-0DC7D0FB5079}
+		{25CF94EB-CD93-480A-A759-8C74C0D2581B} = {00724880-7DC5-418F-B76F-FDDC41E57E05}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2971452A-1B7B-4C08-A5DB-9F01B74E7961}
+	EndGlobalSection
+EndGlobal
