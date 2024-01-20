@@ -24,28 +24,43 @@ public class Converter
 
     }
 
-    public void Run(string Bucketname, string Source, string Result)
+    public void Run(Request Request)
     {
-        //https://github.com/JoshClose/CsvHelper/issues/1259
-
-        string content = GetFileContentFromS3(Bucketname, Source).Result;
-
-        // Parse CSV content
-        using (StringReader reader = new StringReader(content))
-        using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
+        if (Request.Source.EndsWith(".csv"))
         {
-            csv.Read();
-            csv.ReadHeader();
-            var records = csv.GetRecords<dynamic>().ToList();
+            //https://github.com/JoshClose/CsvHelper/issues/1259
 
-            var json = JsonConvert.SerializeObject(records);
+            string content = GetFileContentFromS3(Request.Bucketname, Request.Source).Result;
 
-            //Save
-            /*convert string to stream*/
-            byte[] byteArray = Encoding.ASCII.GetBytes(json);
-            MemoryStream stream = new MemoryStream(byteArray);
+            // Parse CSV content
+            using (StringReader reader = new StringReader(content))
+            using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
+            {
+                csv.Read();
+                csv.ReadHeader();
+                var records = csv.GetRecords<dynamic>().ToList();
 
-            SaveFile(_s3Client, Bucketname, Result, stream, "application/json");
+                var json = JsonConvert.SerializeObject(records);
+
+                //Save
+                /*convert string to stream*/
+                byte[] byteArray = Encoding.ASCII.GetBytes(json);
+                MemoryStream stream = new MemoryStream(byteArray);
+
+                string resultPath = "";
+
+                if (!string.IsNullOrEmpty(Request.ResultPrefix)) 
+                {
+                    string filename = Request.Source.Split("/").Last();
+                    resultPath = Request.ResultPrefix + filename.Replace(".csv",".json");
+                }
+                else 
+                {
+                    resultPath = Request.Result;
+                }
+                
+                SaveFile(_s3Client, Request.Bucketname, resultPath, stream, "application/json");
+            }
         }
     }
 

@@ -6,4 +6,6 @@ public class Request
     public string Bucketname {get; set;}
     public string Source {get; set;}
     public string Result {get; set;}
+
+    public string ResultPrefix {get; set;}
 }

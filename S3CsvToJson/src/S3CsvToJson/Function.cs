@@ -18,7 +18,7 @@ public class Function
     {
         Converter converter = new Converter(Request.Region);
         
-        converter.Run(Request.Bucketname, Request.Source, Request.Result);
+        converter.Run(Request);
 
         return "OK";
     }
